@@ -132,32 +132,23 @@
   </div>
 
   <script>
-    function login() {
-  const username = document.getElementById('loginUsername').value;
-  const password = document.getElementById('loginPassword').value;
-  const registeredUsername = localStorage.getItem('username');
-  const registeredPassword = localStorage.getItem('password');
-  const lastLoginTime = localStorage.getItem('lastLoginTime');
-  const currentTime = new Date().getTime();
+function login() {
+      const username = document.getElementById('loginUsername').value;
+      const password = document.getElementById('loginPassword').value;
+      const registeredUsername = localStorage.getItem('username');
+      const registeredPassword = localStorage.getItem('password');
 
-  if (username === registeredUsername && password === registeredPassword) {
-    // If it's been less than 24 hours since the last login
-    if (lastLoginTime && (currentTime - lastLoginTime) < 24 * 60 * 60 * 1000) {
-      alert("You must wait 24 hours before logging in again.");
-    } else {
-      // Save the current login time
-      localStorage.setItem('lastLoginTime', currentTime);
-      window.location.href = 'codebase3.html'; // Redirect to the intended page
+      if (username === registeredUsername && password === registeredPassword) {
+        window.location.href = 'codebase3.html';
+      } else {
+        document.getElementById('loginButton').style.display = 'none';
+        document.getElementById('errorMessage').style.display = 'block';
+      }
     }
-  } else {
-    document.getElementById('loginButton').style.display = 'none';
-    document.getElementById('errorMessage').style.display = 'block';
-  }
-}
 
-function goBack() {
-  window.location.href = 'login.html';
-}
+    function goBack() {
+      window.location.href = 'login.html';
+    }
   </script>
 
 </body>
