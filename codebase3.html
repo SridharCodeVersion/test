@@ -884,24 +884,12 @@ themeBtn.addEventListener('click', function() {
     localStorage.setItem('theme', currentTheme);
 });
 
-// Switch to details page
-const tiles = document.querySelectorAll('.tile');
-tiles.forEach(tile => {
-    tile.addEventListener('click', function() {
-        document.getElementById('frontPage').classList.add('hidden');
-        document.getElementById('detailsPage').classList.remove('hidden');
-        document.getElementById('backBtnDetails').style.display = 'block';
-        document.getElementById('detailsHeading').textContent = tile.textContent;
-        document.getElementById('detailsText').textContent = `Here is a detailed description about ${tile.textContent}.`;
-        
-    });
-});
+const clickSound = new Audio('click.mp3'); // Replace with actual file path
 
-// BACK button for details page
-document.getElementById('backBtnDetails').addEventListener('click', function() {
-    document.getElementById('detailsPage').classList.add('hidden');
-    document.getElementById('frontPage').classList.remove('hidden');
-    document.getElementById('backBtnDetails').style.display = 'none';
+tiles.forEach(tile => {
+    tile.addEventListener('click', function () {
+        clickSound.play();
+    });
 });
 
 // Tile 3D effect and press effect
