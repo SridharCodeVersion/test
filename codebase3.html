@@ -851,6 +851,16 @@ header h1 {
     </footer>
     </div>
 
+    <div id="detailsPage" class="hidden">
+        <header>
+            <h1 id="detailsHeading"></h1>
+            <button id="backBtnDetails">BACK</button>
+        </header>
+        <section id="detailsDescription">
+            <p id="detailsText"></p>
+        </section>
+    </div>
+
     <!-- Paste your JavaScript code here inside the <script> tag -->
     <script>
         // BACK button for front page
@@ -874,12 +884,25 @@ themeBtn.addEventListener('click', function() {
     localStorage.setItem('theme', currentTheme);
 });
 
-
-document.addEventListener("DOMContentLoaded", function() {
-        document.getElementById("backButton").addEventListener("click", function() {
-            window.location.href = "codebase3.html";  // Ensure the correct file path
-        });
+// Switch to details page
+const tiles = document.querySelectorAll('.tile');
+tiles.forEach(tile => {
+    tile.addEventListener('click', function() {
+        document.getElementById('frontPage').classList.add('hidden');
+        document.getElementById('detailsPage').classList.remove('hidden');
+        document.getElementById('backBtnDetails').style.display = 'block';
+        document.getElementById('detailsHeading').textContent = tile.textContent;
+        document.getElementById('detailsText').textContent = `Here is a detailed description about ${tile.textContent}.`;
+        
     });
+});
+
+// BACK button for details page
+document.getElementById('backBtnDetails').addEventListener('click', function() {
+    document.getElementById('detailsPage').classList.add('hidden');
+    document.getElementById('frontPage').classList.remove('hidden');
+    document.getElementById('backBtnDetails').style.display = 'none';
+});
 
 // Tile 3D effect and press effect
 tiles.forEach(tile => {
@@ -985,6 +1008,7 @@ window.onload = function() {
     description.appendChild(span);
   }
 };
+
     </script>
 </body>
 </html>
