@@ -873,6 +873,12 @@ themeBtn.addEventListener('click', function() {
     themeBtn.className = currentTheme;
     localStorage.setItem('theme', currentTheme);
 });
+document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("backButton").addEventListener("click", function() {
+            window.location.href = "codebase3.html";  // Ensure the correct file path
+        });
+    });
+    
 
 // Switch to details page
 const tiles = document.querySelectorAll('.tile');
@@ -998,11 +1004,6 @@ window.onload = function() {
     description.appendChild(span);
   }
 };
-    document.addEventListener("DOMContentLoaded", function() {
-        document.getElementById("backButton").addEventListener("click", function() {
-            window.location.href = "codebase3.html";  // Ensure the correct file path
-        });
-    });
     </script>
 </body>
 </html>
