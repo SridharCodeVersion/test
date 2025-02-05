@@ -123,7 +123,7 @@
       <button id="loginButton" onclick="login()">Login</button>
     </div>
     <div class="link">
-      <p>Don't have an account? <a href="register.html">Register here</a></p>
+      <p>Don't have an account? <a href="index.html" onclick="goToRegister(event)">Register here</a></p>
     </div>
     <div class="error-message" id="errorMessage" style="display: none;">
       <p>Register first</p>
@@ -149,6 +149,10 @@ function login() {
     function goBack() {
       window.location.href = 'login.html';
     }
+    function goToRegister(event) {
+  event.preventDefault(); // Prevents default anchor behavior if needed
+  window.location.href = "index.html"; // Redirects to register page
+}
   </script>
 
 </body>
