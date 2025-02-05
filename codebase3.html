@@ -875,13 +875,10 @@ themeBtn.addEventListener('click', function() {
 });
 
 // Switch to details page
-const tiles = document.querySelectorAll('.tile');
 tiles.forEach(tile => {
-    tile.addEventListener('click', function() {
-        document.getElementById('frontPage').classList.add('hidden');
-        document.getElementById('detailsPage').classList.remove('hidden');
-        document.getElementById('backBtnDetails').style.display = 'block';
-        document.getElementById('detailsHeading').textContent = tile.textContent;
+    tile.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevents the default action
+        window.location.href = tile.parentElement.href; // Redirects to the tile's linked page
     });
 });
 
